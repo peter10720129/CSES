@@ -8,13 +8,16 @@ int main() {
     int n ; 
     cin >> n ;
 
-    vector<string> codes = {"0","1"};
-    cout << n ;
+    vector<string> codes ;
+    codes.push_back("0") ;
+    codes.push_back("1") ;
     for ( int i = 1 ; i < n ; i++ ) {
-        for ( int j = 0 ; j < codes.size() ; j++ ) {
+        int size = codes.size();
+        codes.resize(size*2) ;
+        for ( int j = 0 ; j < size ; j++ ) {
             
-            codes.push_back(codes[j]+"1") ;
-            codes[j] = codes[j]+"0";
+            codes[size*2-j-1] = "1"+codes[j] ;
+            codes[j] = "0"+codes[j];
         }
     }
 
